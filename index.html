@@ -3,130 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OceanBridge Firmware Update</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f8ff;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #0066cc;
-            text-align: center;
-            border-bottom: 2px solid #0066cc;
-            padding-bottom: 15px;
-        }
-        h2 {
-            color: #0066cc;
-            margin-top: 25px;
-        }
-        .important {
-            background-color: #ffe6e6;
-            border-left: 5px solid #ff3333;
-            padding: 10px 15px;
-            margin: 20px 0;
-        }
-        .important h3 {
-            color: #cc0000;
-            margin-top: 0;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .backup-steps {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .backup-steps ol {
-            margin-bottom: 0;
-        }
-        .logo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .logo img {
-            max-width: 200px;
-        }
-    </style>
-    <!-- Added comment to force cache update -->
+    <title>OceanBridge Manual</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LDYBZVVBP0');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LDYBZVVBP0');
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="https://www.oceanled.com/wp-content/themes/ocean-led/img/ocean-led-logo.png" alt="OceanLed Logo">
-        </div>
-        
-        <h1>OceanBridge Firmware Update</h1>
-        
-        <h2>Download Resources</h2>
+    <nav class="nav-menu">
+        <h2>OceanBridge</h2>
         <ul>
-            <li><strong>Latest Firmware Version (1.6.5):</strong> <a href="https://drive.google.com/drive/folders/1hoVWThHcF_GFBatI1QgLScC4DsMOSBz7?usp=drive_link" target="_blank">Download Firmware</a></li>
-            <li><strong>Firmware Update Process:</strong> <a href="https://www.oceanled.com/wp-content/uploads/2024/04/OceanBridge-Firmware-Update-Guide.pdf" target="_blank">Update Guide PDF</a></li>
-            <li><strong>Full Install & Operation Manual:</strong> <a href="https://drive.google.com/file/d/1bZki8KgTQOaa16coL191ZCQCO2wJeizb/view?usp=sharing" target="_blank">Installation Manual</a></li>
+            <li><a href="firmware-update.html" target="content-frame" class="active">Firmware Update</a></li>
+            <li><a href="technical-specifications.html" target="content-frame">Technical Specifications</a></li>
+            <li><a href="troubleshooting-diagram.html" target="content-frame">Troubleshooting Diagram</a></li>
         </ul>
-        
-        <div class="important">
-            <h3>Important: Backup Your Configuration</h3>
-            <p>Before proceeding with the firmware update, we strongly recommend creating a backup of your existing configuration.</p>
-        </div>
-        
-        <h2>How to Save a Backup to a USB Stick:</h2>
-        <div class="backup-steps">
-            <ol>
-                <li>Insert a USB stick into the OceanBridge USB port.</li>
-                <li>Navigate to: Menu > System > Backup & Restore.</li>
-                <li>Select 'SAVE BACKUP'.</li>
-                <li>Add a name and choose USB as the location.</li>
-                <li>Select 'SAVE' to store the backup.</li>
-            </ol>
-        </div>
+    </nav>
+    <main class="content-area">
+        <iframe name="content-frame" src="firmware-update.html"></iframe>
+    </main>
+    <script>
+        const links = document.querySelectorAll('.nav-menu a');
+        const iframe = document.querySelector('iframe');
 
-        <h2>What's New (Version 1.6.5)</h2>
-        <ul>
-            <li>Added Zooming Page functionality (access from menu)</li>
-            <li>Updated menu layout, added button borders for improved UI</li>
-            <li>Implemented new Help Guide</li>
-            <li>Added functionality for: Delete All Zones, Delete All Devices, Auto Create Zones</li>
-            <li>Introduced new Radio Buttons and icons for: Zone Mode selection, Sweep Mode selection</li>
-            <li>New device type: Colours RGBW Camera</li>
-            <li>New Camera Mode with circular colour picker</li>
-            <li>Added Random Colours generator button</li>
-            <li>Displayed Colour Blocks tags for Audio and Movement modes</li>
-            <li>Upgraded Wi-Fi settings: Combined region and network config, Improved client page and loading/error handling</li>
-            <li>WiFi AP password validation and encryption</li>
-            <li>New Setup Wizard combining app registration and AP password setup</li>
-            <li>Added Reboot device functionality (access from menu)</li>
-            <li>Performed general UI tweaks, bug fixes, and code refactoring for stability and performance</li>
-        </ul>
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                links.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
 
-        <p style="margin-top: 30px; text-align: center; font-size: 0.9em; color: #666;">
-            For technical support, please contact <a href="mailto:technical@oceanled.com">technical@oceanled.com</a>
-        </p>
-    </div>
+    </script>
 </body>
 </html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting Diagram</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .accordion-item {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .accordion-header {
+            background-color: #f2f2f2;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+        }
+        .accordion-header:hover {
+            background-color: #e2e2e2;
+        }
+        .accordion-content {
+            padding: 15px;
+            display: none;
+        }
+        .accordion-content.active {
+            display: block;
+        }
+        .troubleshooting-diagram {
+            list-style: none;
+            padding-left: 0;
+        }
+        .troubleshooting-diagram ul {
+            list-style: none;
+            padding-left: 40px;
+            position: relative;
+        }
+        .troubleshooting-diagram li {
+            position: relative;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        .troubleshooting-diagram li::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            width: 20px;
+            height: 1px;
+            background-color: #ccc;
+        }
+        .troubleshooting-diagram > li::before {
+            display: none;
+        }
+        .troubleshooting-diagram li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 1px;
+            height: 100%;
+            background-color: #ccc;
+        }
+        .troubleshooting-diagram li:last-child::after {
+            height: 50%;
+        }
+        .problem {
+            background-color: #ffe6e6;
+            border-color: #ff3333;
+        }
+        .check {
+            background-color: #e6f7ff;
+            border-color: #0099e6;
+        }
+        .cause {
+            background-color: #fffbe6;
+            border-color: #ffcc00;
+        }
+        .solution {
+            background-color: #e6ffee;
+            border-color: #33cc33;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Troubleshooting Diagram</h1>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">Unit does not power on</div>
+                <div class="accordion-content">
+                    <ul class="troubleshooting-diagram">
+                        <li class="problem">Unit does not power on
+                            <ul>
+                                <li class="check">Check power input to the OceanBridge
+                                    <ul>
+                                        <li class="cause">No power
+                                            <ul>
+                                                <li class="solution">Check main supply fuse / breaker</li>
+                                                <li class="solution">Check power input connections</li>
+                                                <li class="solution">If using NMEA2000 Backbone - check connection with the backbone (T-connector)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="check">Power OK, but the unit does not start, no Green LED
+                                    <ul>
+                                        <li class="solution">Contact Warranty Department</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">The OceanBridge App icon does not appear on the MFD</div>
+                <div class="accordion-content">
+                    <ul class="troubleshooting-diagram">
+                        <li class="problem">The OceanBridge App icon does not appear on the MFD
+                            <ul>
+                                <li class="check">Check the ethernet cable connection with the OceanBridge
+                                    <ul>
+                                        <li class="cause">Not connected
+                                            <ul>
+                                                <li class="solution">Connect the ethernet cable to link the OceanBridge Device with the MFD</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="check">Check the MFD firmware version
+                                    <ul>
+                                        <li class="cause">MFD firmware not supporting the app
+                                            <ul>
+                                                <li class="solution">Update the MFD firmware to the latest available version</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="check">If using Furuno MFD device, install the “OceanLED.enc” configuration file
+                                    <ul>
+                                        <li class="cause">Configuration file not installed
+                                            <ul>
+                                                <li class="solution">Install the “OceanLED.enc” configuration file (see Appendix 9.6)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Lights do not respond or flicker</div>
+                <div class="accordion-content">
+                    <ul class="troubleshooting-diagram">
+                        <li class="problem">Lights do not respond to changes in the GUI/controller and/or random flickering of lights
+                            <ul>
+                                <li class="check">Check the DMX cable connection between OceanBridge Unit and the receiver device (light or Junction Box)
+                                    <ul>
+                                        <li class="cause">Poor/loose/ broken connection
+                                            <ul>
+                                                <li class="solution">Remake the connection or replace the DMX cable</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="check">Check the DMX settings of OceanBridge device (Menu/Network/DMX)
+                                    <ul>
+                                        <li class="cause">Incorrect DMX settings
+                                            <ul>
+                                                <li class="solution">Change the DMX settings to Dual/Mirror Output or DMX Merge according to your setup.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="check">DMX Terminator
+                                    <ul>
+                                        <li class="cause">DMX Terminator not connected (switched off /JB)
+                                            <ul>
+                                                <li class="solution">Fit the DMX terminator (switch it on/ JB)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">App does not respond or freezes</div>
+                <div class="accordion-content">
+                    <ul class="troubleshooting-diagram">
+                        <li class="problem">App does not respond or freezes
+                            <ul>
+                                <li class="cause">Corrupted database file
+                                    <ul>
+                                        <li class="solution">Perform a factory reset using the test/reset button on the box, then create a new setup</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">App does not load</div>
+                <div class="accordion-content">
+                    <ul class="troubleshooting-diagram">
+                        <li class="problem">The app does not load on the device (infinite loading wheel, empty page)
+                            <ul>
+                                <li class="check">Browser version
+                                    <ul>
+                                        <li class="cause">Browser version not supported
+                                            <ul>
+                                                <li class="solution">Update the browser version if possible, or use a different browser / device</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Lighting PGN shows Not Connected</div>
+                <div class="accordion-content">
+                    <ul class="troubleshooting-diagram">
+                        <li class="problem">Lighting PGN shows Not Connected
+                            <ul>
+                                <li class="check">Check drop cables connections for both the OceanBridge unit and MFD device
+                                    <ul>
+                                        <li class="cause">Not connected
+                                            <ul>
+                                                <li class="solution">Connect the device to the NMEA2000 backbone</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="check">Allowing brief waiting period ensures that all devices have enough time to initialize properly and communicate effectively
+                                    <ul>
+                                        <li class="solution">Wait a bit longer after powering on the MFD unit because it takes time for the system to initialize and establish a stable connection between the OceanBridge and the Lighting PGN</li>
+                                    </ul>
+                                </li>
+                                <li class="check">Check if the OceanBridge device appears on the MFD device list in: Settings > Network > Device List
+                                    <ul>
+                                        <li class="cause">No OceanBridge device listed
+                                            <ul>
+                                                <li class="solution">Check if OceanBridge device is on</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="check">Check if the bus is “ON” on the MFD device: Settings > Network > Diagnostics
+                                    <ul>
+                                        <li class="cause">Bus is ‘OFF’ – backbone power issue
+                                            <ul>
+                                                <li class="solution">Check backbone power/ voltage level value</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isActive = content.classList.contains('active');
+
+                    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
+
+                    if (!isActive) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
