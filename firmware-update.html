@@ -109,15 +109,15 @@
 
         <h1>OceanBridge Firmware Update</h1>
 
-        <!-- Latest Firmware Version 1.6.7 -->
+        <!-- Latest Firmware Version 1.6.9 -->
         <div class="latest-version-highlight">
-            <h2>Latest Firmware Version (1.6.7)<span class="latest-badge">NEW</span></h2>
-            <p class="release-date">📅 Released: April 15, 2026</p>
+            <h2>Latest Firmware Version (1.6.9)<span class="latest-badge">NEW</span></h2>
+            <p class="release-date">📅 Released: October 6, 2026</p>
             <h3>Download Resources</h3>
             <ul>
-                <li><strong>Firmware File:</strong> <a href="https://drive.google.com/file/d/16NCZ--74-8ZuGIdObeDy4ZrWAp1FBxnr/view?usp=sharing" target="_blank">Download Firmware v1.6.7 (220MB)</a></li>
+                <li><strong>Firmware File:</strong> <a href="https://drive.google.com/file/d/1hZ5cazOL2bV02umifwJPVeWZ-ZF_azCg/view?usp=sharing" target="_blank">Download Firmware v1.6.9 (221MB)</a></li>
                 <li><strong>Firmware Update Process:</strong> <a href="https://www.oceanled.com/hubfs/OceanBridge/OceanBridge%20Firmware%20Update%20Guide.pdf" target="_blank">Update Guide PDF</a></li>
-                <li><strong>Full Install & Operation Manual:</strong> <a href="https://drive.google.com/file/d/1qfiLtSFvMg0G9S58zvbOPRKPFR24bEzE/view?usp=sharing" target="_blank">Installation Manual</a></li>
+                <li><strong>Full Install & Operation Manual:</strong> <a href="https://drive.google.com/file/d/1u8E9v3vmDoAkqHa3Q4Ru0tttHC-sjH-d/view?usp=sharing" target="_blank">Installation Manual (Rev1.9)</a></li>
             </ul>
         </div>
 
@@ -138,15 +138,44 @@
             </ol>
         </div>
 
-         <h2>What's New (Version 1.6.7)</h2>
+        <h2>What's New (Version 1.6.9)</h2>
+        <h3>New Features:</h3>
+        <ul>
+            <li><strong>NMEA 2000 Device Instance Configuration:</strong> Support for configuring and persisting N2K device instance via USB stick (<code>__n2k-instance</code>, range 0–7) and live instance querying (info page shows the instance).</li>
+            <li><strong>Enhanced Background Image Uploads:</strong> In addition to USB, background images can now be uploaded from PCs and mobile devices. For example, users can select an image directly from their smartphone's image library.</li>
+             <li><strong>Live RDM Diagnostics Telemetry:</strong> Read live fixture sensor telemetry including supply voltage and PCB operating temperature, along with hardware, bootloader, and software versions (applies to RDM enabled OceanLED fixtures).</li>
+            <li><strong>Light Firmware Updates via RDM:</strong> Added support to flash firmware over DMX/RDM for OceanLED RDM supported lights directly from the OceanBridge using <code>.oled</code> firmware files.</li>
+            <li><strong>OceanLED Control Mode Configuration:</strong> Added fixture control mode selection via RDM (Switch &amp; DMX, DMX Only).</li>
+            <li><strong>Expanded Device Support:</strong> Added RDM discovery support for Sport Mini fixtures.</li>
+        </ul>
+        <h3>Improvements &amp; Optimizations:</h3>
+        <ul>
+            <li><strong>Boot Time:</strong> Optimized startup scripts.</li>
+        </ul>
         <h3>Bug Fixes:</h3>
         <ul>
-            <li>Resolved a firmware/software issue in which prolonged browser connection over time led to uncontrolled nginx log file growth. This could exhaust available storage, resulting in service startup failure, disrupted device operation, and activation of the diagnostic LED fault state.</li>
+            <li>Fixed fixture blinking behavior across manual and RDM-discovered devices, ensuring blink state clears reliably.</li>
         </ul>
 
         <!-- Collapsible Previous Versions Section -->
         <button class="collapsible-toggle" onclick="togglePreviousVersions()">Previous Versions</button>
         <div class="collapsible-content">
+
+            <div class="previous-version">
+                <h3>Firmware Version (1.6.7)</h3>
+                <p class="release-date">📅 Released: April 15, 2026</p>
+                <h4>Download Resources</h4>
+                <ul>
+                    <li><strong>Firmware File:</strong> <a href="https://drive.google.com/file/d/16NCZ--74-8ZuGIdObeDy4ZrWAp1FBxnr/view?usp=sharing" target="_blank">Download Firmware v1.6.7 (220MB)</a></li>
+                    <li><strong>Firmware Update Process:</strong> <a href="https://www.oceanled.com/hubfs/OceanBridge/OceanBridge%20Firmware%20Update%20Guide.pdf" target="_blank">Update Guide PDF</a></li>
+                    <li><strong>Full Install & Operation Manual:</strong> <a href="https://drive.google.com/file/d/1qfiLtSFvMg0G9S58zvbOPRKPFR24bEzE/view?usp=sharing" target="_blank">Installation Manual</a></li>
+                </ul>
+                <h4>What's New (Version 1.6.7)</h4>
+                <h4>Bug Fixes:</h4>
+                <ul>
+                    <li>Resolved a firmware/software issue in which prolonged browser connection over time led to uncontrolled nginx log file growth. This could exhaust available storage, resulting in service startup failure, disrupted device operation, and activation of the diagnostic LED fault state.</li>
+                </ul>
+            </div>
 
            
             <div class="previous-version">
